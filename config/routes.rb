@@ -1,15 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-  get 'users/index'
-  end
-
-  get 'products/index'
-
-  namespace :admin do
-  get 'categories/new'
-  end
-
   root "static_pages#home"
   get "login" => "sessions#new"
   post "login" => "sessions#create"
