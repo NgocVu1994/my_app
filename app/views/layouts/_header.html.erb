@@ -1,0 +1,17 @@
+<header class="header">
+    <a href="index.html" class="logo"><%= t :name_app %></a>
+    <nav class="navbar navbar-static-top" role="navigation">
+    <div class="navbar-right">
+        <ul class="nav navbar-nav navbar-right">
+            <% if logged_in? %>
+              <li>
+                <%= link_to t("user.log_out"), logout_path, method: "delete" %>
+              </li>       
+            <% else %>
+                <li><%= link_to t("user.log_in"), login_path %></li>
+                <li><%= link_to t("user.sign_in"), signin_path %></li>
+            <% end %>
+            </ul>
+        </div>
+    </nav>
+</header>
