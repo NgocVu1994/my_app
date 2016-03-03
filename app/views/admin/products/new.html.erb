@@ -1,0 +1,4 @@
+<h1><%= t "admin.product.create_product" %></h1>
+<%= form_for [:admin, @product] do |f| %>
+  <%= render "form_product", f: f %>
+<% end %>

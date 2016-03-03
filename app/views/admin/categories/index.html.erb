@@ -1,0 +1,51 @@
+  <div class="tabbable-panel">
+        <div class="tabbable-line">
+          <ul class="nav nav-tabs ">
+            <li class="active">
+              <a href="#tab_default_1" data-toggle="tab">
+              All Categories</a>
+            </li>
+            <li>
+              <a href="#tab_default_2" data-toggle="tab">
+              Add new category</a>
+            </li>
+          </ul>
+<div class="tab-content">
+  <div class="tab-pane active" id="tab_default_1">
+
+<table class="table table-hover">
+  <thead>
+    <tr class="info">
+      <th><%= t "admin.category.table.id" %></th>
+      <th><%= t "admin.category.table.name" %></th>
+      <th><%= t "admin.category.table.content" %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.id %></td>
+        <td><%= link_to category.name, "#" %></td>
+        <td><%= category.content.truncate 50 %></td>
+        <td>
+          <%= link_to t("admin.product.table.edit"), "#",
+            class: "btn btn-primary" %>
+          <%= link_to t("admin.product.table.delete"), "#" ,
+            method: :delete, data: {confirm: t("messages.confirm")}, class: "btn btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate %>
+</div>
+
+<div class="tab-pane" id="tab_default_2">
+  <h1><%= t "admin.category.create_category" %></h1>
+    <%= form_for [:admin, @category] do |f| %>
+      <%= render "form_category", f: f %>
+    <% end %>
+</div>
+</div>
+</div>

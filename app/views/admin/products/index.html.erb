@@ -1,0 +1,61 @@
+  <div class="tabbable-panel">
+        <div class="tabbable-line">
+          <ul class="nav nav-tabs ">
+            <li class="active">
+              <a href="#tab_default_1" data-toggle="tab">
+              All products</a>
+            </li>
+            <li>
+              <a href="#tab_default_2" data-toggle="tab">
+              Add new product </a>
+            </li>
+          </ul>
+<div class="tab-content">
+  <div class="tab-pane active" id="tab_default_1">
+
+<table class="table table-hover">
+  <thead>
+    <tr class="info">
+      <th><%= t "admin.product.table.id" %></th>
+      <th><%= t "admin.product.table.image" %></th>
+      <th><%= t "admin.product.table.name" %></th>
+      <th><%= t "admin.product.table.content" %></th>
+      <th><%= t "admin.product.table.price" %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.id %></td>
+        <td>
+          <% if product.image.present? %>
+            <%= link_to image_tag(product.image, size: Settings.products.size), "#" %>
+          <% else %>
+            <%= link_to image_tag(Settings.products.url, size: Settings.products.size), "#" %>
+          <% end %>
+        </td>
+        <td><%= link_to product.name, "#" %></td>
+        <td><%= product.content.truncate 50 %></td>
+        <td><%= product.price %></td>
+        <td>
+          <%= link_to t("admin.product.table.edit"), "#",
+            class: "btn btn-primary" %>
+          <%= link_to t("admin.product.table.delete"), "#" ,
+            method: :delete, data: {confirm: t("messages.confirm")}, class: "btn btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate %>
+</div>
+
+<div class="tab-pane" id="tab_default_2">
+  <h1><%= t "admin.product.create_product" %></h1>
+  <%= form_for [:admin, @product] do |f| %>
+    <%= render "form_product", f: f %>
+  <% end %>
+</div>
+</div>
+</div>

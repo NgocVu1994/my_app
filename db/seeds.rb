@@ -7,8 +7,28 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.create!(name:  "Ngoc Vu",
-  email: "ngocvu.uet@gmail.com",
+  email: "user@gmail.com",
   password: "123456",
   password_confirmation: "123456",
   remember_digest: "123456",
   role: 1 )
+
+User.create!(name:  "User 1",
+  email: "admin@gmail.com",
+  password: "123456",
+  password_confirmation: "123456",
+  remember_digest: "123456",
+  role: 0)
+30.times do |n|
+  Category.create!(
+    name: "Category-#{n+1}",
+    content: Faker::Lorem.paragraphs.first)
+end
+
+30.times do |n|
+  Product.create!(
+    name: "Product-#{n+1}",
+    content: Faker::Lorem.paragraphs.first,
+    price: 10,
+    category_id: 1)
+end

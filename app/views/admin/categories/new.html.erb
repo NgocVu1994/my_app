@@ -1,0 +1,4 @@
+<h1><%= t "admin.category.create_category" %></h1>
+<%= form_for [:admin, @category] do |f| %>
+  <%= render "form_category", f: f %>
+<% end %>

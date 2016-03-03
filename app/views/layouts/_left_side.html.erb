@@ -11,40 +11,38 @@
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
-            <!-- search form -->
-            <form action="#" method="get" class="sidebar-form">
-                <div class="input-group">
-                    <input type="text" name="q" class="form-control" placeholder="Search..."/>
-                    <span class="input-group-btn">
-                        <button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
-                    </span>
-                </div>
-            </form>
-            <!-- /.search form -->
-            <!-- sidebar menu: : style can be found in sidebar.less -->
-            <ul class="sidebar-menu">
-                <li class="active">
-                    <a href="index.html">
-                        <i class="fa fa-dashboard"></i> <span>All Books</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="general.html">
-                        <i class="fa fa-gavel"></i> <span>All users</span>
-                    </a>
-                </li>
+            <ul class="sidebar-menu"> 
+                <% if current_user.admin? %>
+                    <li class="active">
+                        <%= link_to " All products", admin_products_path, class: "fa fa-dashboard" %>
+                    </li>
+                    <li>
+                        <%= link_to " All categoris", admin_categories_path , class: "fa fa-gavel" %>
+                    </li>
+                    <li>
+                        <%= link_to " All users", admin_users_path , class: "fa fa-gavel" %>
+                    </li>
 
-                <li>
-                    <a href="basic_form.html">
-                        <i class="fa fa-globe"></i> <span>Help</span>
-                    </a>
-                </li>
+                    <li>
+                         <%= link_to " Help", "#" , class: "fa fa-gavel" %>
+                    </li>
 
-                <li>
-                    <a href="simple.html">
-                        <i class="fa fa-glass"></i> <span>About</span>
-                    </a>
-                </li>
+                <% else %>
+                    <li class="active">
+                        <%= link_to " All products", products_path, class: "fa fa-dashboard" %>
+                    </li>
+                    <li>
+                        <%= link_to " User", "#" , class: "fa fa-gavel" %>
+                    </li>
+                    <li>
+                        <%= link_to " About", "#" , class: "fa fa-gavel" %>
+                    </li>
+
+                    <li>
+                         <%= link_to " Help", "#" , class: "fa fa-gavel" %>
+                    </li>
+
+                <% end %>
 
             </ul>
         </section>

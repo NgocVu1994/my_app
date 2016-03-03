@@ -22,7 +22,7 @@
 en:
   name_app: "My app"
   hello: "Hello world"
-  system_name: "Book System"
+  system_name: " Book System"
   welcome: "Welcome"
   login: "Log in"
   remember: "Remember me"
@@ -31,6 +31,9 @@ en:
   update_profile: "Update profile"
   confirm: "Password confirm"
   submit_change: "Save change"
+  submit: "Submit"
+  messages:
+    confirm: "Are you sure?"
   user:
     name: "user"
     username: "Name"
@@ -42,7 +45,33 @@ en:
     log_out: "Log out"
     confirm: "Confirmation"
     create: "Create my account"
+    category:
+      create_sucess: "Create category successfully"
+      create_fail: "Create category fail"
     messages:
       sign_in_sucess: "Sign in successfully"
   admin:
     name: "admin"
+    category:
+      create_category: "Create category"
+      table:
+        id: "ID"
+        name: "Name"
+        content: "Content"
+    product:
+      create_product: "Create product"
+      create_product_sucess: "Create product successfully"
+      table:
+        id: "ID"
+        name: "Name"
+        content: "Description"
+        price: "Price"
+        image: "Image"
+        edit: "Edit"
+        delete: "Delete"
+    user:
+      table:
+        id: "ID"
+        name: "Name"
+        email: "Email"
+        create_at: "Created at"
