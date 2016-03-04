@@ -1,51 +1,48 @@
  <div class="wrapper row-offcanvas row-offcanvas-left">
     <aside class="left-side sidebar-offcanvas">
-        <section class="sidebar">
-            <div class="user-panel">
-                <div class="pull-left image">
-                    <%= gravatar_for @current_user, size: 150 %>
-                </div>
-                <div class="pull-left info">
-                    <p><%= current_user.name  %></p>
+      <section class="sidebar">
+        <div class="user-panel">
+          <div class="pull-left image">
+            <%= gravatar_for @current_user, size: 150 %>
+          </div>
+          <div class="pull-left info">
+            <p><%= current_user.name  %></p>
+            <%= link_to "Online", user_path(current_user), class: "fa fa-circle text-success"  %>
+          </div>
+        </div>
+        <ul class="sidebar-menu"> 
+          <% if current_user.admin? %>
+            <li class="active">
+                <%= link_to " All products", admin_products_path, class: "fa fa-dashboard" %>
+            </li>
+            <li>
+                <%= link_to " All categoris", admin_categories_path , class: "fa fa-gavel" %>
+            </li>
+            <li>
+                <%= link_to " All users", admin_users_path , class: "fa fa-gavel" %>
+            </li>
 
-                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-                </div>
-            </div>
-            <ul class="sidebar-menu"> 
-                <% if current_user.admin? %>
-                    <li class="active">
-                        <%= link_to " All products", admin_products_path, class: "fa fa-dashboard" %>
-                    </li>
-                    <li>
-                        <%= link_to " All categoris", admin_categories_path , class: "fa fa-gavel" %>
-                    </li>
-                    <li>
-                        <%= link_to " All users", admin_users_path , class: "fa fa-gavel" %>
-                    </li>
+            <li>
+                 <%= link_to " Help", "#" , class: "fa fa-gavel" %>
+            </li>
 
-                    <li>
-                         <%= link_to " Help", "#" , class: "fa fa-gavel" %>
-                    </li>
+          <% else %>
+            <li class="active">
+                <%= link_to " All products", products_path, class: "fa fa-dashboard" %>
+            </li>
+            <li>
+                <%= link_to "Favorite", "#", class: "fa fa-gavel" %>
+            </li>
+            <li>
+                <%= link_to " About", "#" , class: "fa fa-gavel" %>
+            </li>
+            <li>
+                 <%= link_to " Help", "#" , class: "fa fa-gavel" %>
+            </li>
+          <% end %>
 
-                <% else %>
-                    <li class="active">
-                        <%= link_to " All products", products_path, class: "fa fa-dashboard" %>
-                    </li>
-                    <li>
-                        <%= link_to " User", "#" , class: "fa fa-gavel" %>
-                    </li>
-                    <li>
-                        <%= link_to " About", "#" , class: "fa fa-gavel" %>
-                    </li>
-
-                    <li>
-                         <%= link_to " Help", "#" , class: "fa fa-gavel" %>
-                    </li>
-
-                <% end %>
-
-            </ul>
-        </section>
+        </ul>
+      </section>
         <!-- /.sidebar -->
     </aside>
 

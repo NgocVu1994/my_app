@@ -1,4 +1,6 @@
 class Admin::ProductsController < ApplicationController
+  load_and_authorize_resource except: :index
+
   def index
     @products = Product.paginate page: params[:page], per_page: Settings.products.page
     @categories = Category.all
@@ -6,8 +8,6 @@ class Admin::ProductsController < ApplicationController
   end
 
   def new
-    @categories = Category.all
-    @product = Product.new 
   end
 
   def create
@@ -16,7 +16,8 @@ class Admin::ProductsController < ApplicationController
       flash[:success] = t "admin.product.create_product_sucess"
       redirect_to admin_products_path
     else
-      render :new
+      flash[:warning] = t "admin.product.create_product_fail"
+      redirect_to :back
     end
   end
 

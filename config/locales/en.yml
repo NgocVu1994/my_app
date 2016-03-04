@@ -22,7 +22,7 @@
 en:
   name_app: "My app"
   hello: "Hello world"
-  system_name: " Book System"
+  system_name: " Book Review System"
   welcome: "Welcome"
   login: "Log in"
   remember: "Remember me"
@@ -61,6 +61,7 @@ en:
     product:
       create_product: "Create product"
       create_product_sucess: "Create product successfully"
+      create_product_fail: "Create product fail"
       table:
         id: "ID"
         name: "Name"

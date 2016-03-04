@@ -1,0 +1,14 @@
+<%= search_form_for @search, url: products_path, class: "form-inline " do |f| %>
+  <div class="navbar-header">
+    <%= f.label :name %>
+    <%= f.search_field :name_cont, class: "form-control" %>
+  </div>
+  <div class="navbar-header">
+    <%= f.label :category_id %><br>
+    <%= f.select :category_id_eq,
+      options_from_collection_for_select(@categories, :id, :name), class: "form-control" %>
+  </div><br>
+  <div class="navbar-header">
+    <%= f.submit "Submit", class: "btn btn-default button-width" %>
+  </div>
+<% end %>

@@ -1,5 +1,6 @@
 class Admin::CategoriesController < ApplicationController
-  before_action :load_category, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource except: :index
+  
   def index
     @categories = Category.paginate page: params[:page], per_page: Settings.products.page
     @category = Category.new
